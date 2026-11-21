@@ -1,0 +1,29 @@
+{
+  "name": "@tradelog/client",
+  "version": "2.0.0",
+  "private": true,
+  "description": "TradeLog web app: React, React Router, Vite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tradelog/shared": "*",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^7.18.6"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^31.0.1",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  },
+  "license": "MIT"
+}
