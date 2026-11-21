@@ -1,0 +1,26 @@
+# Local MongoDB and API. Run `docker compose up`, then `npm run dev:client`.
+services:
+  mongo:
+    image: mongo:8
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install --no-audit --no-fund && npm run dev --workspace server"
+    ports:
+      - '4000:4000'
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/tradelog
+      JWT_SECRET: local-dev-secret
+      CLIENT_ORIGIN: http://localhost:5173
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
