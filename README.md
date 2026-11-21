@@ -1,6 +1,8 @@
-# TradeLog
+<p align="center"><img src="https://usman1905.github.io/logos/tradelog.webp" alt="TradeLog logo" width="140"></p>
 
-A full stack MERN trading journal. Log every trade, see your risk per position, your equity curve and which setups actually make money.
+<h1 align="center">TradeLog</h1>
+
+<p align="center">A full stack MERN trading journal. Log every trade, see your risk per position, your equity curve and which setups actually make money.</p>
 
 **Live demo:** [usman1905.github.io/tradelog](https://usman1905.github.io/tradelog/)
 
