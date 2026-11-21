@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 
 on:
   push:
@@ -8,9 +8,24 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:8
+        ports: ['27017:27017']
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      MONGODB_URI_TEST: mongodb://127.0.0.1:27017
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm test
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Lint
+        run: npm run lint
+      - name: Test shared maths, API and client
+        run: npm test
+      - name: Build client
+        run: npm run build
